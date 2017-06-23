@@ -1,0 +1,11 @@
+dataDir="/Users/kennethlimcp/Desktop/ghost-1.0"
+blogDir="/ghost/blog"
+
+docker run -d \
+-p 8080:2368 \
+--name ghost-1.0 \
+-v  $dataDir/config.development.json:$blogDir/config.development.json \
+-v  $dataDir/content:$blogDir/content \
+-e "paths__contentPath=$blogDir/content" \
+kennethlimcp/ghost:1.0.0-alpha.19 \
+node current/index.js
