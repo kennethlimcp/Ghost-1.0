@@ -1,6 +1,6 @@
 ### Dockerized Ghost 1.0
 
-As [Ghost](https:/ghost.org) is nearing the launch for V1.0, there are many changes to the way installation is done.
+As [Ghost](https://ghost.org) is nearing the launch for V1.0, there are many changes to the way installation is done.
 
 The base image is an alpine linux disribution with LTS node 6.x to keep the overall image size as small as possible
 
