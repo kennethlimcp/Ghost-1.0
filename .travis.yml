@@ -6,6 +6,6 @@ script:
 # prepare qemu
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
-- travis_wait 40 docker build -t kennethlimcp/armhf-ghost -f Dockerfile.armhf .
+- travis_wait 80 docker build -t kennethlimcp/armhf-ghost -f Dockerfile.armhf .
 # test image
 - docker run kennethlimcp/armhf-ghost ghost ps
