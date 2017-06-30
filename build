@@ -1,0 +1,3 @@
+GHOST_VERSION="1.0.0-beta.2"
+
+time docker build --rm -t kennethlimcp/armhf-ghost:$GHOST_VERSION -f Dockerfile.armhf . | tee output.log
