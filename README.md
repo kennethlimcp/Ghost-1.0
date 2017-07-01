@@ -40,5 +40,5 @@ $ exit
 
 1. Grab the default `contents` [here](ghost-1.0.0.beta-2-content-files.zip)
 2. Place the files (content and .json) into a local directory that you want to use store the data
-Update the `dataDir` path in `run` script
-3. Do `./run`
+3. Update the `dataDir` path in `run` script to point to the directory that stores (content and .json)
+4. Do `./run`
