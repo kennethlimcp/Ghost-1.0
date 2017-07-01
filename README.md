@@ -13,14 +13,32 @@ The base image is an alpine linux disribution with LTS node 6.x to keep the over
 - [] Figure out the NGINX config
 - [] seperate container image to do "ghost update"
 
-### Running this setup
+### Retrieving required files for the first time
 
-1. Download a zipped version of `https://github.com/TryGhost/Ghost`
-2. Copy the `content` folder to a directory you want to use
-3. Create a `config.development.json` file with:
+You can download it directly from: [here](ghost-1.0.0.beta-2-content-files.zip)
+
+First terminal:
+
+This will keep the container running for us to retrieve the files.
 
 ```sh
-{"url":"http://localhost","pname":"ghost-local","server":{"host":"0.0.0.0","port":2368},"process":"local","database":{"client":"sqlite3","connection":{"filename":"/ghost/blog/content/data/ghost-local.db"}},"logging":{"transports":["file","stdout"]}}
+$ docker run -v /Users/kennethlimcp/Desktop/tmp:/tmp --name tmp kennethlimcp/armhf-ghost:1.0.0-beta.2 top
 ```
-4. Update the `dataDir` path in `run` script
-5. Do `./run`
+
+Second terminal:
+
+We will now access the running container and copy the files out from the container to the local host directory.
+
+```sh
+$ docker exec -it tmp /bin/sh
+$ cp -r content /tmp
+$ cp -r config.development.json /tmp
+$ exit
+```
+
+### Running this setup
+
+1. Grab the default `contents` [here](ghost-1.0.0.beta-2-content-files.zip)
+2. Place the files (content and .json) into a local directory that you want to use store the data
+Update the `dataDir` path in `run` script
+3. Do `./run`
