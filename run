@@ -5,8 +5,9 @@ GHOST_VERSION="1.0.0-beta.2"
 docker run -d \
 -p 8080:2368 \
 --name ghost-1.0 \
--v  $dataDir/config.development.json:$blogDir/config.development.json \
+-v  $dataDir/config.production.json:$blogDir/config.production.json \
 -v  $dataDir/content:$blogDir/content \
 -e "paths__contentPath=$blogDir/content" \
+-e "NODE_ENV=production" \
 kennethlimcp/armhf-ghost:$GHOST_VERSION \
 node current/index.js
