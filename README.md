@@ -7,11 +7,11 @@ The base image is an alpine linux disribution with LTS node 6.x to keep the over
 
 ### To-Do
 
-- [] Use production config instead
+- [x] Use production config instead
 - [] Learn how to use volumes instead of the old-school "-v" volume mounting
 - [] Figure out the SSL config
 - [] Figure out the NGINX config
-- [] seperate container image to do "ghost update"
+- [] separate container image to do "ghost update"
 
 ### Retrieving required files for the first time
 
