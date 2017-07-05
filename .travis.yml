@@ -3,9 +3,9 @@ services:
 - docker
 language: bash
 script:
-# prepare qemu
-- docker run --rm --privileged multiarch/qemu-user-static:register --reset
+# prepare qemu for armhf
+# - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
-- travis_wait 80 docker build -t kennethlimcp/armhf-ghost -f Dockerfile.armhf .
+- docker build -t kennethlimcp/armhf-ghost -f Dockerfile .
 # test image
-- docker run kennethlimcp/armhf-ghost ghost ps
+- docker run kennethlimcp/armhf-ghost ghost start
