@@ -1,5 +1,7 @@
 FROM node:6.10-alpine
 
+RUN addgroup -S ghost && adduser -S -g ghost ghost
+
 RUN apk --no-cache add tini \
 	&& apk --no-cache add --virtual devs gcc make python libarchive-tools ca-certificates \
 	&& npm install -g ghost-cli && ghost --version \

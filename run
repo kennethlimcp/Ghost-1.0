@@ -1,6 +1,6 @@
 dataDir="/Users/kennethlimcp/Desktop/ghost-1.0"
 blogDir="/ghost/blog"
-GHOST_VERSION="1.0.0-beta.2"
+GHOST_VERSION="1.0.0-rc.1"
 containerName="ghostblog"
 
 docker rm -f $containerName
