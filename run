@@ -3,6 +3,8 @@ blogDir="/ghost/blog"
 GHOST_VERSION="1.0.0"
 containerName="ghostblog"
 
+docker pull kennethlimcp/armhf-ghost:$GHOST_VERSION
+
 docker rm -f $containerName
 
 docker run -d \
