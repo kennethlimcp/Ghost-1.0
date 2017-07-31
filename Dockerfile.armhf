@@ -4,11 +4,13 @@ RUN addgroup -S ghost && adduser -S -g ghost ghost
 
 RUN apk --no-cache add tini \
 	&& apk --no-cache add --virtual devs gcc g++ make python libarchive-tools ca-certificates \
-	&& npm install -g ghost-cli && ghost --version \
-	&& mkdir -p /ghost/blog \
+ && npm install -g ghost-cli && ghost --version
+
+ARG GHOST_VERSION
+
+RUN mkdir -p /ghost/blog \
 	&& cd /ghost/blog \
-	&& ghost install local \
-	&& ghost stop \
+	&& ghost install ${GHOST_VERSION} --local --no-stack --no-setup --db sqlite3 \
 	&& apk del devs \
 	&& npm uninstall -g node-gyp \
 	&& npm cache clean \
