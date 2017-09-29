@@ -7,6 +7,15 @@ docker pull kennethlimcp/armhf-ghost:$GHOST_VERSION
 
 docker rm -f $containerName
 
+docker run --rm \
+--name ghostmigrate \
+-v  $dataDir/config.production.json:$blogDir/config.production.json \
+-v  $dataDir/content:$blogDir/content \
+-e "paths__contentPath=$blogDir/content" \
+-e "NODE_ENV=production" \
+kennethlimcp/armhf-ghost:$GHOST_VERSION \
+ghost setup migrate
+
 docker run -d \
 -p 8080:2368 \
 --name $containerName \
