@@ -6,6 +6,6 @@ script:
  # prepare qemu for armhf
  - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
- - docker build -t kennethlimcp/ghost -f Dockerfile .
+ - docker build -t kennethlimcp/ghost -f Dockerfile.armhf .
 # test image
- - docker run kennethlimcp/ghost
+ - docker run kennethlimcp/ghost ghost
