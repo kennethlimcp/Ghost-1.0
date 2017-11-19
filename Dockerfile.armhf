@@ -28,6 +28,7 @@ ENV GHOST_CONTENT /var/lib/ghost/content
 ENV GHOST_VERSION 1.17.3
 
 RUN addgroup -S node && adduser -S -g node node
+RUN addgroup -S ghost && adduser -S -g ghost ghost
 
 RUN set -ex; \
 	mkdir -p "$GHOST_INSTALL"; \
