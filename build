@@ -1,3 +1,3 @@
-GHOST_VERSION="1.0.0"
+GHOST_VERSION="1.17.3"
 
-time docker build --rm -t kennethlimcp/armhf-ghost:$GHOST_VERSION -f Dockerfile.armhf --build-arg GHOST_VERSION=$GHOST_VERSION . | tee output.log
+time docker build --rm  --squash -t kennethlimcp/armhf-ghost:$GHOST_VERSION -f Dockerfile.armhf . | tee logs/output-$GHOST_VERSION.log
