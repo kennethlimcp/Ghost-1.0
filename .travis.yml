@@ -1,0 +1,11 @@
+-sudo: required
+ -services:
+ -- docker
+ -language: bash
+ -script:
+ -# prepare qemu for armhf
+ -- docker run --rm --privileged multiarch/qemu-user-static:register --reset
+ -# build image
+ -- docker build -t kennethlimcp/ghost -f Dockerfile .
+ -# test image
+ -- docker run kennethlimcp/ghost
